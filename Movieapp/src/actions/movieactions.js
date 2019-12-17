@@ -17,6 +17,22 @@ const latestMovie = (data) => {
     }
 }
 
+const popularTv = (data) => {
+    return{
+        type: POPULAR_TV,
+        data
+    }
+}
+
+
+const getSearchedResult = (data) => {
+    console.log("searched result", data)
+    return{
+        type: SEARCH_RESULT,
+        data
+    }
+}
+
 // request to api for getting popular movies
 export const loadPopularMovies = () => (dispatch) => {
     // the url with query parameters
@@ -34,16 +50,45 @@ export const loadPopularMovies = () => (dispatch) => {
 
 //get a lastest movie
 export const getLatestMovie = () => (dispatch) => {
-    fetch(`${url}/movie/latest?api_key=${api_key}&language=${language}`)
+    fetch(`${url}/tv/latest?api_key=${api_key}&language=${language}`)
     .then((response) =>  response.json())
     .then((jsonResponse) => {
-        console.log("latestMovies",jsonResponse)
         const action = latestMovie(jsonResponse);
         dispatch(action);
+    })
+    .catch((error) => {
+        console.error(error)
     })
 
 }
 
+//get popular tv
+export const getPopularTV = () => (dispatch) => {
+    fetch(`${url}/tv/popular?api_key=${api_key}&language=${language}&page=${page}`)
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+        const action = popularTv(jsonResponse);
+        dispatch(action);
+    })
+    .catch((error) => {
+        console.error(error)
+    })
+}
+
+
+export const searchMulti = (searchText) => (dispatch) => {
+    fetch(`${url}/search/multi?api_key=${api_key}&language=${language}&query=${searchText}&page=${page}&include_adult=false`)
+    .then((response) => response.json())
+    .then((jsonResponse) => {
+        const action = getSearchedResult(jsonResponse);
+        dispatch(action);
+    })
+    .catch((error) => {
+        console.error(error)
+    })
+}
 
 export const POPULAR_MOVIES =  'POPULAR_MOVIES';
 export const LATEST_MOVIE = 'LATEST_MOVIE';
+export const POPULAR_TV = 'POPULAR_TV';
+export const SEARCH_RESULT = 'SEARCH_RESULT';
