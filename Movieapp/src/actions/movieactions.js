@@ -25,14 +25,6 @@ const popularTv = (data) => {
 }
 
 
-const getSearchedResult = (data) => {
-    //console.log("searched result", data)
-    return{
-        type: SEARCH_RESULT,
-        data
-    }
-}
-
 // request to api for getting popular movies
 export const loadPopularMovies = () => (dispatch) => {
     // the url with query parameters
@@ -68,21 +60,6 @@ export const getPopularTV = () => (dispatch) => {
     .then((response) => response.json())
     .then((jsonResponse) => {
         const action = popularTv(jsonResponse);
-        dispatch(action);
-    })
-    .catch((error) => {
-        console.error(error)
-    })
-}
-
-
-export const searchMulti = (searchText) => (dispatch) => {
-    
-    console.log("Search Text",searchText);
-    fetch(`${url}/search/multi?api_key=${api_key}&language=${language}&query=${searchText}&page=${page}&include_adult=false`)
-    .then((response) => response.json())
-    .then((jsonResponse) => {
-        const action = getSearchedResult(jsonResponse);
         dispatch(action);
     })
     .catch((error) => {
