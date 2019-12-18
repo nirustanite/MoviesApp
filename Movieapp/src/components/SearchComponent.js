@@ -53,7 +53,7 @@ export default class SearchComponent extends Component {
                 data={this.state.data}          
                 renderItem={({ item }) => ( 
                 <Card containerStyle={{padding: 0}} >
-                <ListItem                            
+                <ListItem onPress={() => this.props.navigation.navigate('DetailPage',{id: `${item.id}`, category: 'Movie'})}                         
                     title={`${item.title}`}                       
                     leftAvatar={{ source: {uri: `http://image.tmdb.org/t/p/w342/${item.poster_path}`},  rounded: false }} 
                     containerStyle={{ borderBottomWidth: 0 }} 

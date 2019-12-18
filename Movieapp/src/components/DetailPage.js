@@ -11,6 +11,7 @@ const DetailPage = (props) => {
       const [detail, setdetail] = useState(0);
       const {state} = props.navigation;
       useEffect(() => {
+        
         if(state.params.category === 'Tv'){
             fetch(`${url}/tv/${state.params.id}?api_key=${api_key}&language=${language}`)
             .then((response) => response.json())
@@ -33,18 +34,6 @@ const DetailPage = (props) => {
        }
         
       });
-
-      onBuffer = (event) => {
-        if (this.props.onBuffer) {
-          this.props.onBuffer(event.nativeEvent);
-        }
-      };
-
-      videoError = (event) => {
-        if (this.props.onError) {
-          this.props.onError(event.nativeEvent);
-        }
-      };
         return(
             <>
             <ScrollView>

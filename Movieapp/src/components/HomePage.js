@@ -46,9 +46,7 @@ class HomePage extends Component {
 
 const mapStateToProps = (state) => {
     return{
-        movies: state.popularMovies,
-        latestMovie: state.latestMovie,
-        tv: state.popularTv
+        latestMovie: state.latestMovie
     }
 }
 

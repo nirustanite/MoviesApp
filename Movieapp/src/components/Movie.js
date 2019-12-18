@@ -18,7 +18,7 @@ class Movie extends Component{
     renderItem = ({item, index}) => {
         return (
             <>
-              <View> 
+            <View> 
               <TouchableOpacity activeOpacity = { .5 } onPress={() => this.props.navigation.navigate('DetailPage',{id: `${item.id}`, category: 'Movie'})}>
                 <Image
                     style={{width: 250, height: 300}}
@@ -33,12 +33,12 @@ class Movie extends Component{
     }
 
     render(){
-        console.log(this.props.navigation)
         return(
             <>
              <Text style={{color:'black',fontSize:40}}>Popular movies</Text>
-             {this.props.movies !== [] && <SafeAreaView >
-                 <Carousel
+             <SafeAreaView >
+            
+             {this.props.movies &&  <Carousel
                  ref={(c) => { this._carousel = c; }}
                  data={this.props.movies.results}
                  renderItem={this.renderItem}
@@ -47,8 +47,9 @@ class Movie extends Component{
                  activeSlideAlignment={'start'}
                  inactiveSlideScale={1}
                  inactiveSlideOpacity={1}
-                 />
-             </SafeAreaView> }
+                 /> }
+               
+             </SafeAreaView> 
             </>
         )
     }
