@@ -2,7 +2,7 @@ import {url,api_key,language,page} from '../../constants';
 
 // dispatching popular movies action
 const popularMovies = (data) => {
-    console.log('popular movies', data)
+    //console.log('popular movies', data)
     return{
         type: POPULAR_MOVIES,
         data
@@ -26,7 +26,7 @@ const popularTv = (data) => {
 
 
 const getSearchedResult = (data) => {
-    console.log("searched result", data)
+    //console.log("searched result", data)
     return{
         type: SEARCH_RESULT,
         data
@@ -39,7 +39,7 @@ export const loadPopularMovies = () => (dispatch) => {
     fetch(`${url}/movie/popular?api_key=${api_key}&language=${language}&page=${page}`)
      .then((response) => response.json())
      .then((jsonResponse) =>  {
-         console.log("data from movies ",jsonResponse)
+         //console.log("data from movies ",jsonResponse)
          const action = popularMovies(jsonResponse);
          dispatch(action);
      })
@@ -77,6 +77,8 @@ export const getPopularTV = () => (dispatch) => {
 
 
 export const searchMulti = (searchText) => (dispatch) => {
+    
+    console.log("Search Text",searchText);
     fetch(`${url}/search/multi?api_key=${api_key}&language=${language}&query=${searchText}&page=${page}&include_adult=false`)
     .then((response) => response.json())
     .then((jsonResponse) => {
