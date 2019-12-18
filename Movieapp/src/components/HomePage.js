@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {loadPopularMovies,getLatestMovie,getPopularTV} from '../actions/movieactions';
 import Movie from './Movie';
 import Tv from './Tv';
-import SearchComponent from './SearchComponent';
+
 
 
 class HomePage extends Component {
@@ -28,10 +28,12 @@ class HomePage extends Component {
          <ScrollView>
            {this.props.latestMovie !== [] && <View style={{flex:1, justifyContent:'center', alignItems:'center'}}> 
               <Text style={{color:'black', fontSize:30}}>Latest Tv</Text>
+              <TouchableOpacity activeOpacity = { .5 } onPress={() => this.props.navigation.navigate('DetailPage',{id: `${this.props.latestMovie.id}`, category: 'Tv'})}>
               <Image
                 style={{width: 250, height: 250}}
                 source={{uri: `http://image.tmdb.org/t/p/w342/${this.props.latestMovie.backdrop_path}`}}
-              />       
+              /> 
+               </TouchableOpacity>   
               <Text style={{color:'black', fontSize:30}} >{this.props.latestMovie.name}</Text>
             </View>}
             <Movie />

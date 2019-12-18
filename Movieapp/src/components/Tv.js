@@ -35,7 +35,7 @@ class Tv extends Component{
     render(){
         return(
             <>
-             <Text style={{color:'black',fontSize:40}}>Popular movies</Text>
+             <Text style={{color:'black',fontSize:40}}>Popular Tv</Text>
              {this.props.tv !== [] && <SafeAreaView >
                  <Carousel
                  ref={(c) => { this._carousel = c; }}
