@@ -11,6 +11,8 @@ import SearchComponent from './src/components/SearchComponent'
 import HomePage from './src/components/HomePage'
 import {Provider} from 'react-redux'
 import store from './store';
+import AppContainer from './src/components/Navigation'
+
 
 import {
   SafeAreaView,
@@ -25,10 +27,7 @@ import {
    render(){
        return (
          <Provider store={store}>
-           <React.Fragment>
-              <SearchComponent />
-              <HomePage />
-           </React.Fragment>
+            <AppContainer />
          </Provider>
        )
    }

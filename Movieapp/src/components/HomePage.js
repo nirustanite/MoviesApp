@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image, StyleSheet, Dimensions,Text,SafeAreaView } from 'react-native';
+import { View, ScrollView, Image, StyleSheet, Dimensions,Text,SafeAreaView, Button } from 'react-native';
 import {connect} from 'react-redux';
 import {loadPopularMovies,getLatestMovie,getPopularTV} from '../actions/movieactions';
 import Carousel from 'react-native-snap-carousel';
+import SearchComponent from './SearchComponent';
+
 
 
 class HomePage extends Component {
@@ -14,7 +16,7 @@ class HomePage extends Component {
   }
 
   renderItem = ({item, index}) => {
-      console.log("images",item.poster_path)
+      //console.log("images",item.poster_path)
     return (
         <>
           <View> 
@@ -36,10 +38,17 @@ class HomePage extends Component {
   render() {
      return(
         <>
+         <Button
+                    title="Search Movies"
+                    onPress={() =>{
+                        this.props.navigation.navigate('SearchComponent')
+                    }}
+            />
         <ScrollView>
-           {this.props.latestMovie && <View style={{flex:1, justifyContent:'center',alignItems:'center'}}> 
+           {this.props.latestMovie && <View style={{flex:1, justifyContent:'center', alignItems:'center'}}> 
+              <Text style={{color:'black', fontSize:30}}>Latest Tv</Text>
               <Image
-                style={{width: 300, height: 250}}
+                style={{width: 250, height: 250}}
                 source={{uri: `http://image.tmdb.org/t/p/w342/${this.props.latestMovie.backdrop_path}`}}
               />       
               <Text style={{color:'black', fontSize:30}} >{this.props.latestMovie.name}</Text>
@@ -65,6 +74,7 @@ class HomePage extends Component {
                 />
             </SafeAreaView> }
             </ScrollView>
+           
         </>
         
      )
