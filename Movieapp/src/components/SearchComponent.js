@@ -4,9 +4,9 @@ import {searchMulti} from '../actions/movieactions';
 import {connect} from 'react-redux'; 
 //import SearchDisplay from './SearchDisplay';
 import {url,api_key,language,page} from '../../constants';
-import { List, ListItem } from 'react-native-elements';
+import { List, ListItem,Card } from 'react-native-elements';
 import {FlatList, Button} from 'react-native';
-
+import { withNavigation } from 'react-navigation';
 
 export default class SearchComponent extends Component {
 
@@ -21,7 +21,6 @@ export default class SearchComponent extends Component {
     }
 
     updateSearch = search => {
-      console.log("Search STring ", search)
       this.setState({ search });
       fetch(`${url}/search/movie?api_key=${api_key}&language=${language}&query=${this.state.search}&page=${page}&include_adult=false`)
       .then((response) => response.json())
@@ -53,14 +52,15 @@ export default class SearchComponent extends Component {
          <FlatList          
                 data={this.state.data}          
                 renderItem={({ item }) => ( 
-                <ListItem                            
-                    title={`${item.title}`}                          
-                     leftAvatar={{ source: {uri: `http://image.tmdb.org/t/p/w342/${item.poster_path}`} }} 
+                <Card containerStyle={{padding: 0}} >
+                <ListItem onPress={() => this.props.navigation.navigate('DetailPage',{id: `${item.id}`, category: 'Movie'})}                         
+                    title={`${item.title}`}                       
+                    leftAvatar={{ source: {uri: `http://image.tmdb.org/t/p/w342/${item.poster_path}`},  rounded: false }} 
                     containerStyle={{ borderBottomWidth: 0 }} 
-                />          
+                /> 
+                </Card>         
                 )}                             
                 /> 
-            
             </>
 
 
@@ -75,6 +75,6 @@ export default class SearchComponent extends Component {
     }
   }
 
-  
+ 
 
   
