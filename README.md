@@ -1,12 +1,13 @@
 # MoviesApp
-
+  - A React Native application
+  
 # Table of Contents
 1. [Functionality](#functionality)
 2. [Features](#features)
 3. [Installation](#installation)
 4. [Setup of Android Emulator](#nndroid-emulator)
 5. [Setup in Android Phone](#android-phone)
-4. [Setup of the project](#setup-project)
+6. [Setup of the project](#setup-project)
 
 <a name="functionality"></a>
 ### App Functionality
@@ -57,6 +58,7 @@
 
 <a name="setup-project"></a>
 #### Setup of the project
+
 1. Sign up and get the api key for the movie Database using the given link
  
    (https://www.themoviedb.org/account/signup)
@@ -79,10 +81,14 @@
 
       ` react-native run-android `
       
-7. Type the command to start the app
+7. Close the application in the emulator or phone.
+
+8. Type the command to start the app
 
       ` react-native start `
+      
+9. When loading dependecy graph is done, open the app.
     
-8. Now, the app can be used in the phone.
+10. Now, the app can be used in the phone.
 
      
