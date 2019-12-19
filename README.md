@@ -12,7 +12,7 @@
 <a name="functionality"></a>
 ### App Functionality
 
-- The App displays popular Movies and Tv series. When a Movie is selected, teh app shows the details of the Movies.
+- The App displays popular Movies and Tv series. When a Movie is selected, the app shows the details of the Movies.
 - The App also includes a Search Functionality which allows to Search for Movies.
 
 <a name="features"></a>
