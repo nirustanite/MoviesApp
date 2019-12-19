@@ -1,8 +1,7 @@
-import {url,api_key,language,page} from '../../constants';
+import { url, api_key, language, page } from '../../constants'; // importing all the constants
 
 // dispatching popular movies action
 const popularMovies = (data) => {
-    //console.log('popular movies', data)
     return{
         type: POPULAR_MOVIES,
         data
@@ -10,13 +9,14 @@ const popularMovies = (data) => {
 }
 
 //dispatching latestMovie action
-const latestMovie = (data) => {
+const latestTv = (data) => {
     return{
-        type: LATEST_MOVIE,
+        type: LATEST_TV,
         data
     }
 }
 
+//dispatching popular Tv
 const popularTv = (data) => {
     return{
         type: POPULAR_TV,
@@ -31,7 +31,6 @@ export const loadPopularMovies = () => (dispatch) => {
     fetch(`${url}/movie/popular?api_key=${api_key}&language=${language}&page=${page}`)
      .then((response) => response.json())
      .then((jsonResponse) =>  {
-         //console.log("data from movies ",jsonResponse)
          const action = popularMovies(jsonResponse);
          dispatch(action);
      })
@@ -40,12 +39,12 @@ export const loadPopularMovies = () => (dispatch) => {
      })
 }
 
-//get a lastest movie
-export const getLatestMovie = () => (dispatch) => {
+//get a latest Tv
+export const getLatestTv = () => (dispatch) => {
     fetch(`${url}/tv/latest?api_key=${api_key}&language=${language}`)
     .then((response) =>  response.json())
     .then((jsonResponse) => {
-        const action = latestMovie(jsonResponse);
+        const action = latestTv(jsonResponse);
         dispatch(action);
     })
     .catch((error) => {
@@ -67,7 +66,9 @@ export const getPopularTV = () => (dispatch) => {
     })
 }
 
+
+// exporting all the dispatched actions.
 export const POPULAR_MOVIES =  'POPULAR_MOVIES';
-export const LATEST_MOVIE = 'LATEST_MOVIE';
+export const LATEST_TV = 'LATEST_TV';
 export const POPULAR_TV = 'POPULAR_TV';
 export const SEARCH_RESULT = 'SEARCH_RESULT';

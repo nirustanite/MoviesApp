@@ -1,13 +1,14 @@
-import React, {Component} from "react";
-import {Text,View,StyleSheet} from "react-native";
+import React, { Component } from "react";
+import { View, StyleSheet } from "react-native";
 import Video from 'react-native-video';
+import { videoUrl } from '../../constants'; // the url of the Video
 
+// The code for Playing Video
 export default class VideoFile extends Component {
   render(){
     return(
       <View style={styles.container}>
-
-      <Video source={{uri: `https://rawgit.com/mediaelement/mediaelement-files/master/big_buck_bunny.mp4​`}}   
+        <Video source={{uri: `${videoUrl}`}}   
           ref={(ref) => {
               this.player = ref
           }}                                      
@@ -18,7 +19,7 @@ export default class VideoFile extends Component {
     );
   }}
 
-
+// Styles for the video
 const styles = StyleSheet.create({
   container:{ flex: 1, justifyContent: "center"},
   backgroundVideo: {

@@ -1,4 +1,8 @@
-export const url="https://api.themoviedb.org/3"
-export const api_key="5ac3de41813518c43c4e7ed687d7cec6"
-export const language='en-US'
-export const page=1
+// exports all the constants
+
+export const url="https://api.themoviedb.org/3";
+export const api_key="Your API KEY";
+export const language='en-US';
+export const page=1;
+export const imageUrl="http://image.tmdb.org/t/p/w342";
+export const videoUrl="https://rawgit.com/mediaelement/mediaelement-files/master/big_buck_bunny.mp4​";

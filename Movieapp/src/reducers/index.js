@@ -1,9 +1,11 @@
-import popularMovies from './popularMovies'
-import latestMovie from './latestMovie'
-import popularTv from './popularTv'
+// Exports all the reducers
+
+import popularMovies from './popularMovies';
+import latestTv from './latestTv';
+import popularTv from './popularTv';
 
 module.exports = {
     popularMovies,
-    latestMovie,
+    latestTv,
     popularTv,
-}
+};

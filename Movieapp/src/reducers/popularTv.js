@@ -1,4 +1,6 @@
-import {POPULAR_TV} from '../actions/movieactions';
+// stores the data of popular Tv
+
+import { POPULAR_TV } from '../actions/movieactions';
 
 export default (state = [], action) => {
     switch (action.type) {

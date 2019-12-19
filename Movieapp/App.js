@@ -7,35 +7,20 @@
  */
 
 import React from 'react';
-import SearchComponent from './src/components/SearchComponent'
-import HomePage from './src/components/HomePage'
-import {Provider} from 'react-redux'
+import {Provider} from 'react-redux';
 import store from './store';
-import AppContainer from './src/components/Navigation'
+import AppContainer from './src/Navigation/Navigation';
 
-
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
- class App extends React.Component{
-   render(){
-       return (
-         <Provider store={store}>
+// Main APP component where the proram starts
+class App extends React.Component{
+    render(){
+        return (
+          <Provider store={store}>
             <AppContainer />
-         </Provider>
-       )
-   }
-  
+          </Provider>
+        )
+    }
 };
 
-const styles = StyleSheet.create({
-  
-});
 
 export default App;
