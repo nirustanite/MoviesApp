@@ -53,7 +53,9 @@
 #### Setup in android phone
 
 1. Connect mobile phone with USB cable.
+
 2. Check the box to transfer files.
+
 3. Go to Settings => Developer Options => Enable USB Debugging.
 
 <a name="setup-project"></a>
