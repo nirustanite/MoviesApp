@@ -5,7 +5,7 @@
 1. [Functionality](#functionality)
 2. [Features](#features)
 3. [Installation](#installation)
-4. [Setup of Android Emulator](#nndroid-emulator)
+4. [Setup of Android Emulator](#android-emulator)
 5. [Setup in Android Phone](#android-phone)
 6. [Setup of the project](#setup-project)
 
