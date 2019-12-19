@@ -39,7 +39,7 @@
 <a name="android-emulator"></a>
 #### Setup the android emulator.
 
-1. Go to the link specified and perform all the instructions till setting up ANDROID_HOME
+1. Go to the link specified, go to react native CLI Quickstart and perform all the instructions till setting up ANDROID_HOME
    
    (https://facebook.github.io/react-native/docs/getting-started)
    
